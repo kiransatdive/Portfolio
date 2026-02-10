@@ -2,16 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  experimental: {
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-  },
   images: {
     remotePatterns: [
       {
@@ -20,7 +10,15 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack: (config, { dev, isServer }) => {
+    // Fix core-js issues
     if (!dev && !isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+      
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
