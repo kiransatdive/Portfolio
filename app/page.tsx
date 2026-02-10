@@ -7,12 +7,19 @@ import { Heading } from "@/components/heading";
 import { SubHeading } from "@/components/subheading";
 import Testimonials from "@/components/testimonials";
 import { Scales } from "@/components/scales";
+import { ContainerTextFlip } from "@/components/ui/container-text-flip";
+import Experience from "@/components/experience";
 function HomePage() {
   return (
     <div className="min-h-screen flex justify-start items-start">
       <Container className=" min-h-screen px-12 md:pt-20 md:pb-10">
         <Scales />
-        <Heading>Kiran Satdive!</Heading>
+        <div className="flex items-center gap-2">
+          <Heading>Kiran Satdive</Heading>
+          <ContainerTextFlip 
+            words={["!", "Software Developer", "Designer", "Creator"]}
+          />
+        </div>
         <SubHeading>
           I am Software Engineer with a passion for building scalable and
           efficient systems.I am currently as a software Engineer as Freelancer.{" "}
@@ -20,6 +27,9 @@ function HomePage() {
         <Projects projects={projects.slice(0, 3)} />
         <div className="my-4 -mx-4 border-x border-neutral-100 shadow-section-inset px-4">
           <LandingBlogs />
+        </div>
+        <div className="">
+          <Experience />
         </div>
         <div className="my-4 -mx-4 border-x border-neutral-100 shadow-section-inset px-4">
           <Testimonials />

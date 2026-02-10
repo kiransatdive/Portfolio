@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import { SectionHeading } from "./section-heading";
+import { TechTooltip } from "@/components/ui/tech-tooltip";
 import { 
   FaHtml5, 
   FaCss3Alt, 
-  FaSass, 
   FaJs
 } from "react-icons/fa";
 import { IconBrandTailwind } from "@tabler/icons-react";
@@ -17,11 +17,30 @@ import { IconBrandTailwind } from "@tabler/icons-react";
 export function Projects({ projects = defaultProjects }: { projects?: Project[] }) {
 
   const techs = [
-    { name: "HTML5", icon: <FaHtml5 className="text-orange-500" size={20} /> },
-    { name: "CSS3", icon: <FaCss3Alt className="text-blue-600" size={20} /> },
-    { name: "JavaScript", icon: <FaJs className="text-yellow-500" size={20} /> },
-    { name: "tailwindcss", icon: <IconBrandTailwind className="text-blue-500" size={20} /> },
-   
+    { 
+      id: 1, 
+      name: "HTML5", 
+      designation: "HTML",
+      icon: <FaHtml5 className="text-orange-500" />
+    },
+    { 
+      id: 2, 
+      name: "CSS3", 
+      designation: "Styling",
+      icon: <FaCss3Alt className="text-blue-600" />
+    },
+    { 
+      id: 3, 
+      name: "JavaScript", 
+      designation: "Programming",
+      icon: <FaJs className="text-yellow-500" />
+    },
+    { 
+      id: 4, 
+      name: "Tailwind", 
+      designation: "CSS Framework",
+      icon: <IconBrandTailwind className="text-blue-500" />
+    },
   ];
 
   return (
@@ -62,20 +81,8 @@ export function Projects({ projects = defaultProjects }: { projects?: Project[] 
                   <p className="text-sm max-w-sm text-neutral-500 dark:text-neutral-400 px-4 min-h-[3rem] flex items-center">
                     {project.description}
                   </p>
-                  <div className="flex -space-x-4 group/tech-stack py-4 px-4">
-                    {techs.map((tech, techIdx) => (
-                      <div
-                        key={tech.name}
-                        className="group relative flex h-9 w-9 items-center justify-center
-                     rounded-full bg-gray-100 dark:bg-zinc-800
-                     transition-all duration-300
-                     hover:scale-125 hover:shadow-lg cursor-pointer
-                     hover:z-10 hover:-translate-y-2"
-                        style={{ zIndex: techs.length - techIdx }}
-                      >
-                        {tech.icon}
-                      </div>
-                    ))}
+                  <div className="flex py-4 px-4">
+                    <TechTooltip items={techs.filter(tech => tech.name === "HTML5" || tech.name === "JavaScript" || tech.name === "CSS3" || tech.name === "Tailwind")} />
                   </div>
                 </motion.div>
               </div>

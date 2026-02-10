@@ -98,7 +98,7 @@ function Timeline() {
             }}
             className="shadow-input w-fit rounded-md px-2 py-0.5 font-bold text-black mb:2"
           >{year.title}</motion.h2>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 py-2">
             {year.content.map((item, index) => (
               <div key={index} className="pl-4">
                 <Step
