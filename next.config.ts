@@ -2,10 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  turbopack: {},
   images: {
     remotePatterns: [
       {
-        hostname: "aceternity.com",
+        hostname: "",
       },
     ],
   },

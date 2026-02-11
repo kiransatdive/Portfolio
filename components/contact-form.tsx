@@ -37,10 +37,10 @@ export const ContactForm = () => {
 
             // Replace with your EmailJS service ID, template ID, and public key
             const response = await emailjs.send(
-                'service_wzd2stk',    // Replace with your EmailJS service ID
-                'template_ar6dl49',   // Replace with your EmailJS template ID
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_wzd2stk',
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_ar6dl49',
                 templateParams,
-                'NTVqx0olrfHpp4xau'     // Replace with your EmailJS public key
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'NTVqx0olrfHpp4xau'
             );
 
             console.log('EmailJS response:', response);
