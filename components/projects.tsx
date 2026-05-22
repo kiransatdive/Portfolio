@@ -6,41 +6,36 @@ import Link from "next/link";
 import { Project, projects as defaultProjects } from "@/constants/projects";
 import { SectionHeading } from "./section-heading";
 import { TechTooltip } from "@/components/ui/tech-tooltip";
-import { 
-  FaHtml5, 
-  FaCss3Alt, 
-  FaJs
-} from "react-icons/fa";
-import { IconBrandTailwind } from "@tabler/icons-react";
-
+import { SiExpress, SiMysql, SiPostgresql } from "react-icons/si";
+import { FaNodeJs } from "react-icons/fa";
 
 export function Projects({ projects = defaultProjects }: { projects?: Project[] }) {
 
   const techs = [
-    { 
-      id: 1, 
-      name: "HTML5", 
-      designation: "HTML",
-      icon: <FaHtml5 className="text-orange-500" />
-    },
-    { 
-      id: 2, 
-      name: "CSS3", 
-      designation: "Styling",
-      icon: <FaCss3Alt className="text-blue-600" />
-    },
-    { 
-      id: 3, 
-      name: "JavaScript", 
-      designation: "Programming",
-      icon: <FaJs className="text-yellow-500" />
-    },
-    { 
-      id: 4, 
-      name: "Tailwind", 
-      designation: "CSS Framework",
-      icon: <IconBrandTailwind className="text-blue-500" />
-    },
+     {
+    id: 1,
+    name: "Node.js",
+    designation: "Backend Runtime",
+    icon: <FaNodeJs className="text-green-500 text-4xl" />,
+  },
+  {
+    id: 2,
+    name: "Express.js",
+    designation: "Web Framework",
+    icon: <SiExpress className="text-gray-300 text-4xl" />,
+  },
+  {
+    id: 3,
+    name: "MySQL",
+    designation: "Database",
+    icon: <SiMysql className="text-blue-500 text-4xl" />,
+  },
+  {
+    id: 4,
+    name: "PostgreSQL",
+    designation: "Relational Database",
+    icon: <SiPostgresql className="text-sky-500 text-4xl" />,
+  },
   ];
 
   return (
