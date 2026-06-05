@@ -22,7 +22,7 @@ export const projects: Project[] = [
     },
     {
         title: "Style Unit",
-        src: "/images/projects/styleUnit.png",
+        src: "/images/projects/styleunit.png",
         href: "https://play.google.com/store/apps/details?id=com.styleplusunit.user&hl=en_IN",
         description:
             "Style Unit is a salon application that allows users to book salon services.",
