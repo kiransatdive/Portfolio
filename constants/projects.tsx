@@ -31,13 +31,13 @@ export const projects: Project[] = [
     {
         title: "Home Services",
         src: "/images/projects/homeservice.jpeg",
-        href: "https://play.google.com/store/apps/details?id=com.styleplusunit.user&hl=en_IN",
+        href: "https://play.google.com/store/apps/details?id=com.aaplelok.homeservices&hl=en_IN",
         description:
             "Home Services is an mobile application that allows users to find and book home services.",
     },
     {
         title: "Pulse News",
-        src: "/images/projects/news.jpeg",
+        src: "/images/projects/news.png",
         href: "/projects/news",
         description:
             "A premium, real-time news aggregator featuring personalized AI summaries, customized category feeds, and dynamic reading views.",

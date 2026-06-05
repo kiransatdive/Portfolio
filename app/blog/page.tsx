@@ -49,7 +49,6 @@ export const metadata: Metadata = {
 
 export default async function BlogsPage() {
   const allBlogs = await getBlogs();
-  console.log("allBlogs", allBlogs);
 
   const truncate = (str: string, length: number) => {
     return str.length > length ? str.substring(0, length) + "..." : str;

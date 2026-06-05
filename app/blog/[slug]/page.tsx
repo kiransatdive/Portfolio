@@ -2,8 +2,15 @@ import { Container } from "@/components/container";
 import React from "react";
 import { Metadata } from "next";
 import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
-import {getSingleBlog,getBLogFrontMatterBySlug} from "@/utils/mdx";
+import { getSingleBlog, getBLogFrontMatterBySlug, getBlogs } from "@/utils/mdx";
 import { redirect } from "next/navigation";
+
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,
@@ -38,11 +45,10 @@ async function SingleBlogPage({
     redirect("/blog");
   }
   const {frontmatter, content} = blog;
-  console.log(frontmatter);
 
   return (
     <div>
-      <img src={frontmatter.image} alt={frontmatter.title} className=" max-h-96 mb-20 mx-auto mx-rounded-full object-cover max-h-2xl w-full rounded-2xl shadow-xl" />
+      <img src={frontmatter.image} alt={frontmatter.title} className="max-h-96 mb-20 mx-auto object-cover max-h-2xl w-full rounded-2xl shadow-xl" />
       
         <div className="prose mx-auto">
           {content}
